@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light only" />
+  <title>Birthday Keepsake</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient--rose" aria-hidden="true"></div>
+  <div class="ambient ambient--cream" aria-hidden="true"></div>
+
+  <div class="sparkles" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <main class="book-app">
+    <div class="book-chrome">
+      <p class="book-mark">Birthday Keepsake</p>
+      <button
+        id="musicToggle"
+        class="music-toggle"
+        type="button"
+        aria-label="大美女请点击播放音乐"
+        aria-pressed="false"
+      >
+        <span class="music-toggle__visual" aria-hidden="true">
+          <span class="music-toggle__disc"></span>
+          <span class="music-toggle__arm"></span>
+        </span>
+        <span class="music-toggle__text">
+          <strong id="musicLabelCn">大美女请点击播放音乐</strong>
+          <em id="musicLabelEn"></em>
+        </span>
+      </button>
+    </div>
+
+    <section class="book-stage" aria-label="焦阳大美女的零碎日常">
+      <div class="book-stage__glow" aria-hidden="true"></div>
+      <div class="book-stage__spine" aria-hidden="true"></div>
+      <div class="book-stage__shadow" aria-hidden="true"></div>
+      <div class="book-stage__ornaments" aria-hidden="true">
+        <span class="book-stage__petal book-stage__petal--1"></span>
+        <span class="book-stage__petal book-stage__petal--2"></span>
+        <span class="book-stage__petal book-stage__petal--3"></span>
+        <span class="book-stage__petal book-stage__petal--4"></span>
+        <span class="book-stage__petal book-stage__petal--5"></span>
+        <span class="book-stage__dot book-stage__dot--1"></span>
+        <span class="book-stage__dot book-stage__dot--2"></span>
+        <span class="book-stage__dot book-stage__dot--3"></span>
+      </div>
+      <div class="page-window">
+        <div id="pageStack" class="page-stack" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <footer class="book-footer">
+      <div class="book-footer__hint">
+        <span>Use keyboard</span>
+        <strong>Left / Right</strong>
+      </div>
+
+      <div class="page-indicator" aria-live="polite">
+        <span id="pageCurrent">01</span>
+        <span class="page-indicator__divider">/</span>
+        <span id="pageTotal">01</span>
+      </div>
+
+      <div class="book-controls">
+        <button id="prevBtn" class="nav-button" type="button" aria-label="上一页">
+          <span class="nav-button__cn">上一页</span>
+          <span class="nav-button__en">Previous</span>
+        </button>
+        <button id="nextBtn" class="nav-button" type="button" aria-label="下一页">
+          <span class="nav-button__cn">下一页</span>
+          <span class="nav-button__en">Next</span>
+        </button>
+      </div>
+    </footer>
+  </main>
+
+  <audio id="bgm" preload="none" loop></audio>
+  <audio id="endingSong" preload="none" loop></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
