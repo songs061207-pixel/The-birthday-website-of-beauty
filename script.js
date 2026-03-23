@@ -140,6 +140,17 @@ const photoSpreadNotes = [
   "这一页单独留给你，愿你天天开心。"
 ];
 
+const photoSpreadNoteDeck = [
+  "你一出现，这一页就亮了。✨",
+  "有些瞬间，天生适合被收藏。📷",
+  "好天气 🌤️",
+  "连随手一拍，都很有被偏爱的感觉。💞",
+  "快乐放在你身上，就变得很具体。🍓",
+  "被认真记录的人，会一直发光。💫",
+  "回忆上了发条 🎞️",
+  "这一页单独留给你，愿你天天开心。🌷"
+];
+
 let pageElements = [];
 let bookPages = [];
 let currentPageIndex = 0;
@@ -178,7 +189,7 @@ function buildPages() {
       type: "photo-spread",
       data: {
         ...spread,
-        pageLine: photoSpreadNotes[spreadIndex] || "",
+        pageLine: photoSpreadNoteDeck[spreadIndex] || "",
         spreadIndex: spreadIndex + 1,
         totalSpreads: photoSpreads.length
       }
