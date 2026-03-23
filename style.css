@@ -1100,7 +1100,8 @@ button {
 }
 
 .photo-page {
-  grid-template-rows: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0.7rem;
 }
 
 .photo-spread__head {
@@ -1128,6 +1129,17 @@ button {
   color: rgba(95, 75, 70, 0.74);
   font-size: 0.9rem;
   line-height: 1.7;
+}
+
+.photo-spread__footer {
+  display: flex;
+  justify-content: center;
+  padding-inline: 0.25rem;
+}
+
+.photo-spread__footer .photo-spread__note {
+  max-width: 34rem;
+  text-align: center;
 }
 
 .photo-spread__layout {

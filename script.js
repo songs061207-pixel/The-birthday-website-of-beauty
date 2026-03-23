@@ -10,6 +10,16 @@ const bgm = document.getElementById("bgm");
 const endingSong = document.getElementById("endingSong");
 
 const ANIMATION_MS = 720;
+const photoPageLines = [
+  "故事就从这些被认真记住的瞬间开始。",
+  "有些好看不用刻意摆拍，也会自己发光。",
+  "把那天的风、光和心情，都悄悄收进这一页。",
+  "你的镜头感，连随手一拍都很偏爱。",
+  "快乐这件事，和你放在一起就变得很自然。",
+  "生活被你好好记录，所以平凡也有了亮晶晶的边角。",
+  "翻到这里的时候，已经有一点舍不得翻太快了。",
+  "这一页想单独留给你，愿你天天开心。"
+];
 
 // 修改标题的位置
 // 这里集中放封面、章节标题、按钮标题，后续只需要改这里。
@@ -157,6 +167,7 @@ function buildPages() {
       type: "photo-spread",
       data: {
         ...spread,
+        pageLine: photoPageLines[spreadIndex] || "",
         spreadIndex: spreadIndex + 1,
         totalSpreads: photoSpreads.length
       }
@@ -442,6 +453,11 @@ function renderPhotoSpreadPage(data, index) {
       <div class="page__inner photo-spread__layout photo-spread__layout--${escapeAttribute(data.layout)}">
         ${data.items.map(renderPhotoCard).join("")}
       </div>
+      ${hasText(data.pageLine)
+        ? `<div class="page__inner photo-spread__footer">
+        <p class="photo-spread__note">${escapeHtml(data.pageLine)}</p>
+      </div>`
+        : ""}
     </section>
   `;
 }
