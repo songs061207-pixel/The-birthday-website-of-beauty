@@ -129,6 +129,17 @@ const siteData = {
   ]
 };
 
+const photoSpreadNotes = [
+  "你一出现，这一页就亮了。",
+  "有些瞬间，天生适合被收藏。",
+  "风景很好看，但你更好看。",
+  "连随手一拍，都很有被偏爱的感觉。",
+  "快乐放在你身上，就变得很具体。",
+  "被认真记录的人，会一直发光。",
+  "翻到这里，已经开始舍不得太快。",
+  "这一页单独留给你，愿你天天开心。"
+];
+
 let pageElements = [];
 let bookPages = [];
 let currentPageIndex = 0;
@@ -167,7 +178,7 @@ function buildPages() {
       type: "photo-spread",
       data: {
         ...spread,
-        pageLine: photoPageLines[spreadIndex] || "",
+        pageLine: photoSpreadNotes[spreadIndex] || "",
         spreadIndex: spreadIndex + 1,
         totalSpreads: photoSpreads.length
       }
@@ -452,13 +463,21 @@ function renderPhotoSpreadPage(data, index) {
     <section class="page photo-page" data-index="${index}" data-type="photo-spread" aria-label="照片纪念册页 ${data.spreadIndex}">
       <div class="page__inner photo-spread__layout photo-spread__layout--${escapeAttribute(data.layout)}">
         ${data.items.map(renderPhotoCard).join("")}
+        ${renderPhotoSpreadNote(data)}
       </div>
-      ${hasText(data.pageLine)
-        ? `<div class="page__inner photo-spread__footer">
-        <p class="photo-spread__note">${escapeHtml(data.pageLine)}</p>
-      </div>`
-        : ""}
     </section>
+  `;
+}
+
+function renderPhotoSpreadNote(data) {
+  if (!hasText(data.pageLine)) {
+    return "";
+  }
+
+  return `
+    <aside class="photo-spread__quote photo-spread__quote--${escapeAttribute(data.layout)}" aria-hidden="true">
+      <span>${escapeHtml(data.pageLine)}</span>
+    </aside>
   `;
 }
 
